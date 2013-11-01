@@ -34,6 +34,6 @@ public class Point {
 
     @Override
     public String toString() {
-        return messageSource.getMessage("drawing.point", new Object[] {x, y}, "Default drawing point message!", new Locale("ru"));
+        return messageSource.getMessage("drawing.point", new Object[] {x, y}, "Default drawing point message!", new Locale("en"));
     }
 }

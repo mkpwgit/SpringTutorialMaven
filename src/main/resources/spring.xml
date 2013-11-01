@@ -57,6 +57,6 @@
 
     <context:annotation-config/>
 
-    <context:component-scan base-package="spring.tutorial.maven.domain" />
+    <context:component-scan base-package="spring.tutorial.maven" />
 
 </beans>
