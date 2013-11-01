@@ -1,11 +1,9 @@
-package spring.tutorial.maven;
-
-import javax.annotation.PostConstruct;
+package spring.tutorial.maven.domain;
 
 /**
  * @author Mikalai Kisel
  */
-public class Triangle {
+public class Triangle implements Shape{
 
     private Point pointA;
     private Point pointB;
@@ -39,6 +37,7 @@ public class Triangle {
      * It is documentation.
      */
     public void draw() {
+        System.out.println("Drawing triangle");
         System.out.println(pointA.getX() +" " + pointA.getY());
         System.out.println(pointB.getX() +" " + pointB.getY());
         System.out.println(pointC.getX() +" " + pointC.getY());
@@ -54,7 +53,6 @@ public class Triangle {
         System.out.println("Disposable Bean!!!");
     }*/
 
-    @PostConstruct
     public void myInit() {
         System.out.println("My init Bean!!!");
     }

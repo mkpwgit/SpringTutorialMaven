@@ -4,32 +4,45 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 	                       http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="parenttriangle" class="spring.tutorial.maven.Triangle">
+    <bean id="parenttriangle" class="spring.tutorial.maven.domain.Triangle">
         <property name="pointA" ref="pointA"/>
     </bean>
 
-    <bean id="triangle" class="spring.tutorial.maven.Triangle" parent="parenttriangle">
+    <bean id="triangle" class="spring.tutorial.maven.domain.Triangle" parent="parenttriangle">
         <property name="pointB" ref="pointB"/>
         <property name="pointC" ref="pointC"/>
     </bean>
 
-    <bean id="triangle2" class="spring.tutorial.maven.Triangle" parent="parenttriangle">
+    <bean id="circle" class="spring.tutorial.maven.domain.Circle" >
+        <property name="center" ref="pointA"/>
+    </bean>
+
+
+    <bean id="triangle2" class="spring.tutorial.maven.domain.Triangle" parent="parenttriangle">
         <property name="pointB" ref="pointB"/>
     </bean>
 
-    <bean id="pointA" class="spring.tutorial.maven.Point">
-        <property name="x" value="0"/>
-        <property name="y" value="0"/>
+    <bean id="pointA" class="spring.tutorial.maven.domain.Point">
+        <property name="x" value="${pointA.pointX}"/>
+        <property name="y" value="${pointA.pointY}"/>
     </bean>
 
-    <bean id="pointB" class="spring.tutorial.maven.Point">
+    <bean id="pointB" class="spring.tutorial.maven.domain.Point">
         <property name="x" value="20"/>
         <property name="y" value="20"/>
     </bean>
 
-    <bean id="pointC" class="spring.tutorial.maven.Point">
+    <bean id="pointC" class="spring.tutorial.maven.domain.Point">
         <property name="x" value="-20"/>
         <property name="y" value="-20"/>
+    </bean>
+
+    <!--<bean class="spring.tutorial.maven.factory.DisplayNameBeanPostProcessor" />-->
+
+    <!--<bean class="spring.tutorial.maven.factory.MyBeanFactoryPP" />-->
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
+        <property name="location" value="points.properties" />
     </bean>
 
 </beans>

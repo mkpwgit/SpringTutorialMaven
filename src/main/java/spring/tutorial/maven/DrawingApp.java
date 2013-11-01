@@ -2,6 +2,7 @@ package spring.tutorial.maven;
 
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import spring.tutorial.maven.domain.Shape;
 
 /**
  * @author Mikalai Kisel
@@ -12,9 +13,8 @@ public class DrawingApp {
 
         AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
         context.registerShutdownHook();
-        Triangle triangle = (Triangle) context.getBean("triangle");
-        triangle.draw();
-        context.destroy();
+        Shape shape = (Shape) context.getBean("circle");
+        shape.draw();
 
     }
 }

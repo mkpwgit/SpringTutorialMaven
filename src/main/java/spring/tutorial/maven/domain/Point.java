@@ -1,4 +1,4 @@
-package spring.tutorial.maven;
+package spring.tutorial.maven.domain;
 
 /**
  * @author Mikalai Kisel
@@ -22,5 +22,13 @@ public class Point {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
     }
 }
