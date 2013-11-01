@@ -1,5 +1,10 @@
 package spring.tutorial.maven.domain;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+
+import java.util.Locale;
+
 /**
  * @author Mikalai Kisel
  */
@@ -7,6 +12,9 @@ public class Point {
 
     private int x;
     private int y;
+
+    @Autowired
+    private MessageSource messageSource;
 
     public int getX() {
         return x;
@@ -26,9 +34,6 @@ public class Point {
 
     @Override
     public String toString() {
-        return "Point{" +
-                "x=" + x +
-                ", y=" + y +
-                '}';
+        return messageSource.getMessage("drawing.point", new Object[] {x, y}, "Default drawing point message!", new Locale("ru"));
     }
 }
